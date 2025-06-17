@@ -1,13 +1,17 @@
 import './App.css';
 import styled from 'styled-components';
 import chocolate from './img/chocolate1.png'
+import Nav from './Components/Nav';
+import Footer from './Components/Footer';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <h1>CHOCOLATE IS THE BEST THING IN THE FUCKING WORLD!</h1>
       <StyledHeading >deal with that</StyledHeading >
       <Myimg src={chocolate} alt='cutesy chocolate'/>
+      <Nav/>
+      <Footer/>
     </div>
   );
 }
