@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import chocolate from './img/chocolate1.png';
+import chocolate from '../img/chocolate1.png';
 import { Link } from 'react-router-dom';
 
 const MyUser = () => {
