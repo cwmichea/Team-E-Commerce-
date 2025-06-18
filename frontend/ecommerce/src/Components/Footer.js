@@ -3,13 +3,13 @@ import styled from 'styled-components';
 const Footer = () => {
     return(
         <div>
-            <p>
+            <P>
                 Footer WIP
-            </p>
+            </P>
         </div>
     )
 }
-const StyledH = styled.h1`
+const P = styled.h1`
   font-family: ${({ theme }) => theme.fonts.primary};
   color: ${({ theme }) => theme.palette.primary};
 `
