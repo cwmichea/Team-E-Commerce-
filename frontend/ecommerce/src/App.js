@@ -2,6 +2,10 @@ import './App.css';
 import Nav from './Components/Nav';
 import Footer from './Components/Footer';
 import { BrowserRouter as Router,  Routes,  Route,  Link,  useParams } from 'react-router-dom';
+import MyHome from './Components/MyHome'
+import MyAbout  from './Components/MyAbout'
+import MyUser from './Components/MyUser'
+import MyProducts from './Components/MyProducts'
 
 const App = () => {
   return (

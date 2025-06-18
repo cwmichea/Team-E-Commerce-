@@ -8,15 +8,15 @@ const Nav = () => {
           <Link to="/">Home</Link> |{' '}
           <Link to="/about">About</Link> |{' '}
           <Link to="/products">Products</Link> |{' '}
-          <StyledLink to="/user/123">User 123</StyledLink>
+          {/* <StyledLink to="/user/123">User 123</StyledLink> */}
         </nav>
         </div>
     )
 }
 
-const StyledLink = styled.Link`
-  font-family: ${({ theme }) => theme.fonts.primary};
-  color: ${({ theme }) => theme.palette.primary};
-`
+// const StyledLink = styled.Link`
+//   font-family: ${({ theme }) => theme.fonts.primary};
+//   color: ${({ theme }) => theme.palette.primary};
+// `
 
 export default Nav
