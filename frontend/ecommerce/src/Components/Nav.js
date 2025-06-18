@@ -13,10 +13,8 @@ const Nav = () => {
         </div>
     )
 }
-
 // const StyledLink = styled.Link`
 //   font-family: ${({ theme }) => theme.fonts.primary};
 //   color: ${({ theme }) => theme.palette.primary};
 // `
-
 export default Nav
