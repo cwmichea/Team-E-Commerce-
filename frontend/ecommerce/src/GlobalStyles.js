@@ -4,11 +4,13 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components';
 const theme = {
   palette: {
     primary: '#3498db',
-    // color1: '#e74c3c',
-    // color2: '#f39c12',
-    // color1Light: '#9b59b6',
-    // color2Light: '#34495e',
-    // primaryLight: '#3498db',
+    secondary: '##9a9b9f',
+    tertiary: "#f4c88c",
+    color1: '#9a9b9f',
+    color2: '#f39c12',
+    color1Light: '#9b59b6',
+    color2Light: '#34495e',
+    primaryLight: '#3498db',
   },
   fonts: {
     primary: 'Raleway, sans-serif',

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const MyProducts = () => {
     return(
      <div>
-        <p>Products</p>
+        <h1>PRODUCTS</h1>
         <Myimg src={chocolate} alt="Chocolate"/>
      </div>
     )
