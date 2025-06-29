@@ -22,6 +22,7 @@ const Footer = () => {
                 <Country/>
                 <DarkMode/>
             </div>
+
         </Wrapper>
     )
 }
