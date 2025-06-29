@@ -48,6 +48,7 @@ const Home = () => {
           <MandalaIcon>♻</MandalaIcon>
           <MandalaTitle>{content[language].balance}</MandalaTitle>
         </MandalaCircle>
+
         
         <MandalaCircle color="primary">
           <MandalaIcon>∞</MandalaIcon>
