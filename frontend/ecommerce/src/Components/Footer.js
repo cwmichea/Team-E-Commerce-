@@ -1,21 +1,28 @@
 import styled from 'styled-components';
-import FooterAccount from './FooterAccount';
-import FooterLinks from './FooterLinks';
-import FooterSupport from './FooterSupport';
 import DarkMode from './FooterDarkMode';
 import Country from './FooterCountry';
 import Language from './FooterLanguage';
+import pageScript from '../Objects/Script';
+import { useLanguage } from './LanguageContext';
+
 
 const Footer = () => {
+    const { language } = useLanguage(); // Get current language
+    
     return(
         <Wrapper>
             <P>
                 TúMandas
             </P>
             <div>
-                <FooterAccount/>
-                <FooterSupport/>
-                <FooterLinks/>
+                {Object.entries(pageScript[language].footer).map(([key, value])=>(
+                    <div  key = {key}>
+                        <h2>{value.h2}</h2>
+                        <p>{value.link2}</p>
+                        <p>{value.link3}</p>
+                        {/* {console.log (key, value)} */}
+                    </div>
+                ))}
             </div>
             <div className='buttons'>
                 <Language/>
