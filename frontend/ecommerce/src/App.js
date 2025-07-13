@@ -21,7 +21,7 @@ const App = () => {
             <Route path="/about" element={<MyAbout />} />
             <Route path="/user/:userId" element={<MyUser />} />
             <Route path="/products/" element={<MyProducts />} />
-            <Route path="/products/productId" element={<MyProducts />} />
+            <Route path="/products/:productId" element={<MyProductDetail />} />
 
             <Route path="*" element={<h2>404 - Page Not Found</h2>} />
           </Routes>

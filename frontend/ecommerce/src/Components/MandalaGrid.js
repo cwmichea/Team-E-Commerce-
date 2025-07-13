@@ -2,6 +2,49 @@ import React from 'react';
 import styled from 'styled-components';
 import mandalas from '../data/mandalas.json'; 
 import { Link } from 'react-router-dom';
+import { useLanguage } from './LanguageContext'; // Import the language context
+// const imgContext = require.context('..', false, /\.jpg$/);
+const printMe = (log) => {console.log(log);}
+
+export default function MandalaGrid() {
+  const { language } = useLanguage(); // Get current language
+  // Multilingual content
+  const content = {
+      en: {
+        btn: "Take a look",
+      },
+      fr: {
+        btn: "Voir plus",
+      },
+      es: {
+        btn: "Echa un vistazo",
+      }
+  }
+  
+  return (<>
+    <Grid>
+      {mandalas.map((item) => {
+        // const imgSrc = imgContext(`${item.imgRoute}`); 
+        const imgSrc = process.env.PUBLIC_URL + item.imgRoute; // ✅ fixed     
+        const imgSrc1 = '/chocolate1.png';   
+        printMe(item.imgRoute.toString());   
+        return (
+        <Card key={item.productId}>
+          {/* import chocolate from '../img/chocolate1.png'; */}
+          <StyledLink to={`/products/${item.productId}`}>
+              <Image src={imgSrc} alt={item.name} />
+          </StyledLink>
+          {/* <Image src={imgSrc} alt={item.name} /> */}
+          <Title>{item.name}</Title>
+          <Price>${item.price.toFixed(2)}</Price>
+          <StyledButtonLink to={`/products/${item.productId}`}>
+            {content[language].btn} 
+          </StyledButtonLink>
+        </Card>
+      )} )}
+    </Grid></>
+  );
+}
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -39,8 +82,7 @@ const Price = styled.p`
   color: #2d6a4f;
   margin: 0.2rem 0;
 `;
-
-const DownloadLink = styled.a`
+const StyledButtonLink = styled(Link)`
   display: inline-block;
   margin-top: 0.5rem;
   padding: 0.4rem 0.8rem;
@@ -53,33 +95,7 @@ const DownloadLink = styled.a`
     background: #1d3557;
   }
 `;
+
 const StyledLink = styled(Link)`
   display: block;
 `;
-const imgContext = require.context('..', false, /\.jpg$/);
-const printMe = (log) => {console.log(log);}
-export default function MandalaGrid() {
-  return (<>
-    <Grid>
-      {mandalas.map((item) => {
-        // const imgSrc = imgContext(`${item.imgRoute}`); 
-        const imgSrc = process.env.PUBLIC_URL + item.imgRoute; // ✅ fixed     
-        const imgSrc1 = '/chocolate1.png';   
-        printMe(item.imgRoute.toString());   
-        return (
-        <Card key={item.productId}>
-          {/* import chocolate from '../img/chocolate1.png'; */}
-          <StyledLink to={`/products/${item.productId}`}>
-              <Image src={imgSrc} alt={item.name} />
-          </StyledLink>
-          {/* <Image src={imgSrc} alt={item.name} /> */}
-          <Title>{item.name}</Title>
-          <Price>${item.price.toFixed(2)}</Price>
-          <DownloadLink href={item.filePdfRoute} target="_blank" rel="noopener noreferrer">
-            Download PDF
-          </DownloadLink>
-        </Card>
-      )} )}
-    </Grid></>
-  );
-}

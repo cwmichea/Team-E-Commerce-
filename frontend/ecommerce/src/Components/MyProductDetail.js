@@ -1,18 +1,67 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import mandalas from '../data/mandalas.json';
+import { useLanguage } from './LanguageContext';
+
+export default function MyProductDetail() {
+  const { productId } = useParams();
+  const product = mandalas.find((p) => p.productId === productId);
+  const {language} = useLanguage()
+
+  const content = {
+    en: {
+      error: "Sorry, Product not found!",
+      goback: "Go back",
+      download: "Download here the "
+    },
+    fr: {
+      error: "Désolé, le produit n'a pas été trouvé",
+      goback: "Retour ",
+      download: "Telecharger ici le "
+    },
+    es: {
+      error: "Lo siento, el product no fue encontrado",
+      goback: "Regresar",
+      download: "Descarga aquí el "
+    }
+  }
+//   console.log("productId ", productId);
+//   console.log("productId from URL:", productId);
+//   console.log("All productIds:", mandalas.map(p => p.productId));
+
+  if (!product) {
+    return <Wrapper><h2>{content[language].error}</h2></Wrapper>;
+  }
+
+  return (
+    <Wrapper>
+      <Image src={process.env.PUBLIC_URL + product.imgRoute} alt={product.name} />
+      <Title>{product.name}</Title>
+      <Price>${product.price.toFixed(2)} Cad</Price>
+
+      <DownloadLink href={product.filePdfRoute} target="_blank" rel="noopener noreferrer">
+        {content[language].download} PDF
+      </DownloadLink>
+
+      <StyledButtonLink to={`/products/`}>
+        {content[language].goback} 
+      </StyledButtonLink>
+    </Wrapper>
+  );
+}
 
 const Wrapper = styled.div`
   padding: 40px;
   max-width: 600px;
   margin: auto;
-  text-align: center;
-`;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers child elements horizontally */`;
 
 const Image = styled.img`
   max-width: 100%;
-  height: 500px;
+  height: 450px;
   border-radius: 1rem;
   object-fit: cover;
 `;
@@ -38,26 +87,17 @@ const DownloadLink = styled.a`
     background: #1d3557;
   }
 `;
-
-export default function MyProductDetail() {
-  const { productId } = useParams();
-  const product = mandalas.find((p) => p.productId === productId);
-//   console.log("productId ", productId);
-//   console.log("productId from URL:", productId);
-//   console.log("All productIds:", mandalas.map(p => p.productId));
-
-  if (!product) {
-    return <Wrapper><h2>Product not found!!</h2></Wrapper>;
+const StyledButtonLink = styled(Link)`
+//   display: block;
+//   max-width: 150px;
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background: #457b9d;
+  color: white;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+  &:hover {
+    background: #1d3557;
   }
-
-  return (
-    <Wrapper>
-      <Image src={process.env.PUBLIC_URL + product.imgRoute} alt={product.name} />
-      <Title>{product.name}</Title>
-      <Price>${product.price.toFixed(2)}</Price>
-      <DownloadLink href={product.filePdfRoute} target="_blank" rel="noopener noreferrer">
-        Download PDF
-      </DownloadLink>
-    </Wrapper>
-  );
-}
+`;
