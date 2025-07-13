@@ -1,0 +1,86 @@
+[
+  {
+    "name": "giraffe",
+    "productId": "P01",
+    "price": 9.99,
+    "imgRoute": "/img/thumbs_mandala-giraffe.jpg",
+    "filePdfRoute": "/img/mandala-giraffe.pdf"
+  },
+  {
+    "name": "horse2",
+    "productId": "P02",
+    "price": 7.99,
+    "imgRoute": "/img/thumbs_mandala-horse-2.jpg",
+    "filePdfRoute": "/img/mandala-horse-2.pdf"
+  },
+  {
+    "name": "horse3",
+    "productId": "P03",
+    "price": 4.99,
+    "imgRoute": "/img/thumbs_mandala-horse-3.jpg",
+    "filePdfRoute": "/img/mandala-horse-3.pdf"
+  },
+  {
+    "name": "peacok",
+    "productId": "P04",
+    "price": 10.99,
+    "imgRoute": "/img/thumbs_mandala-incredible-peacock.jpg",
+    "filePdfRoute": "/img/mandala-incredible-peacock.pdf"
+  },
+  {
+    "name": "flowers",
+    "productId": "P05",
+    "price": 12.99,
+    "imgRoute": "/img/thumbs_mandala-insects-flowers.jpg",
+    "filePdfRoute": "/img/mandala-insects-flowers.pdf"
+  },
+  {
+    "name": "lion",
+    "productId": "P06",
+    "price": 9.99,
+    "imgRoute": "/img/thumbs_mandala-lion-head-3.jpg",
+    "filePdfRoute": "/img/mandala-lion-head-3.pdf"
+  },
+  {
+    "name": "monkey",
+    "productId": "P07",
+    "price": 8.99,
+    "imgRoute": "/img/thumbs_mandala-monkey-head-1.jpg",
+    "filePdfRoute": "/img/mandala-monkey-head-1.pdf"
+  },
+  {
+    "name": "tiger1",
+    "productId": "P08",
+    "price": 4.99,
+    "imgRoute": "/img/thumbs_mandala-tiger-head-1.jpg",
+    "filePdfRoute": "/img/mandala-tiger-head-1.pdf"
+  },
+  {
+    "name": "tiger4",
+    "productId": "P09",
+    "price": 4.99,
+    "imgRoute": "/img/thumbs_mandala-tiger-head-4.jpg",
+    "filePdfRoute": "/img/mandala-tiger-head-4.pdf"
+  },
+  {
+    "name": "wolf2",
+    "productId": "P10",
+    "price": 9.99,
+    "imgRoute": "/img/thumbs_mandala-wolf-head-2.jpg",
+    "filePdfRoute": "/img/mandala-wolf-head-2.pdf"
+  },
+  {
+    "name": "wolf4",
+    "productId": "P11",
+    "price": 9.99,
+    "imgRoute": "/img/thumbs_mandala-wolf-head-4.jpg",
+    "filePdfRoute": "/img/mandala-wolf-head-4.pdf"
+  },
+  {
+    "name": "dog2",
+    "productId": "P12",
+    "price": 5.99,
+    "imgRoute": "/img/thumbs_mandala-dog-head-2.jpg",
+    "filePdfRoute": "/img/mandala-dog-head-2.pdf"
+  }
+]

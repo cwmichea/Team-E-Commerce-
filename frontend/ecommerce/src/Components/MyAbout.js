@@ -1,11 +1,25 @@
 import styled from 'styled-components';
-import chocolate from '../img/chocolate1.png';
+// import chocolate from './img/chocolate1.png';
 import { Link } from 'react-router-dom';
+import { useLanguage } from './LanguageContext'; // Import the language context
 
 const MyAbout = () => {
+    const { language } = useLanguage(); // Get current language
+  // Multilingual content
+  const content = {
+    en: {
+      header: "About us, Tú Mandas",
+    },
+    fr: {
+      header: " À propos de nous, Tú Mandas",
+    },
+    es: {
+      header: "Acerca de nosotros, ",
+    }
+  };
     return(
       <div>
-        <h1>ABOUT</h1>
+        <Myh1>{content[language].header}</Myh1>
         <p>
           Amet non consequat consectetur aliqua. Culpa do mollit velit laborum elit ex incididunt ex magna. Adipisicing ipsum amet exercitation officia esse aliqua veniam et cupidatat reprehenderit exercitation consectetur irure in. Et exercitation in duis exercitation exercitation adipisicing esse consequat reprehenderit ea nulla sint exercitation laboris. Nostrud labore laborum Lorem irure ipsum sit id laboris. Occaecat dolore ex dolor commodo dolore quis sint ea.
 
@@ -27,13 +41,13 @@ const MyAbout = () => {
 
           Occaecat laborum ullamco dolor in non laborum anim id ullamco. In et velit nulla enim quis tempor non ullamco. Voluptate cillum aliqua amet esse voluptate mollit et mollit qui excepteur fugiat mollit voluptate ea. Fugiat excepteur velit ullamco non duis exercitation sint. Eiusmod ipsum consectetur consectetur incididunt enim adipisicing laborum ex et ex in velit sunt incididunt. Lorem aliquip laboris non laboris irure dolore adipisicing.
         </p>
-        <Myimg src={chocolate} alt="Chocolate"/>
+        {/* <Myimg src={chocolate} alt="Chocolate"/> */}
       </div>
     )
 }
 
-const Myimg = styled.img`
-  height: 200px;
+const Myh1 = styled.h1`
+  text-align: center;
 `
 
 export default MyAbout;
