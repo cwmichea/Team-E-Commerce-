@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import chocolate from '../img/chocolate1.png';
+// import chocolate from './img/chocolate1.png';
 import { Link } from 'react-router-dom';
 
 const MyAbout = () => {
@@ -27,7 +27,7 @@ const MyAbout = () => {
 
           Occaecat laborum ullamco dolor in non laborum anim id ullamco. In et velit nulla enim quis tempor non ullamco. Voluptate cillum aliqua amet esse voluptate mollit et mollit qui excepteur fugiat mollit voluptate ea. Fugiat excepteur velit ullamco non duis exercitation sint. Eiusmod ipsum consectetur consectetur incididunt enim adipisicing laborum ex et ex in velit sunt incididunt. Lorem aliquip laboris non laboris irure dolore adipisicing.
         </p>
-        <Myimg src={chocolate} alt="Chocolate"/>
+        {/* <Myimg src={chocolate} alt="Chocolate"/> */}
       </div>
     )
 }

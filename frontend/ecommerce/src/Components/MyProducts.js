@@ -1,18 +1,21 @@
 import styled from 'styled-components';
-import chocolate from '../img/chocolate1.png';
-import { Link } from 'react-router-dom';
+// import chocolate from '../img/chocolate1.png';
+import MandalaGrid from './MandalaGrid';
 
 const MyProducts = () => {
     return(
      <div>
-        <h1>PRODUCTS</h1>
-        <Myimg src={chocolate} alt="Chocolate"/>
+        <Myh1>PRODUCTS</Myh1>
+        {/* <Myimg src={chocolate} alt="Chocolate"/> */}
+        <MandalaGrid/>
      </div>
     )
 }
 
-const Myimg = styled.img`
-  height: 200px;
+const Myh1 = styled.h1`
+  text-align: center;
+  // font-size: 22;
 `
 
 export default MyProducts;
+
