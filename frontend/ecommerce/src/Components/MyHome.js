@@ -1,63 +1,36 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import pageScript from '../Objects/Script';
 import { useLanguage } from './LanguageContext'; // Import the language context
 
 const Home = () => {
   const { language } = useLanguage(); // Get current language
 
-  // Multilingual content
-  const content = {
-    en: {
-      header: "Welcome to Tú Manda, your Mandala World",
-      subtitle: "Here, we color your life!",
-      peace: "Peace",
-      balance: "Balance",
-      harmony: "Harmony",
-      cta: "Begin Journey"
-    },
-    fr: {
-      header: "Bienvenue à Tú Manda, ton Monde Mandala",
-      subtitle: "Ici, on colore ta vie!",
-      peace: "Paix",
-      balance: "Équilibre",
-      harmony: "Harmonie",
-      cta: "Commencer le Voyage"
-    },
-    es: {
-      header: "Bienvenido a Tú Manda, tu Mundo Mandala",
-      subtitle: "Aquí, coloremaons tu vida!",
-      peace: "Paz",
-      balance: "Equilibrio",
-      harmony: "Armonía",
-      cta: "Comenzar el Viaje"
-    }
-  };
-
   return (
     <HomeContainer>
-      <MandalaHeader>{content[language].header}</MandalaHeader>
-      <MandalaSub>{content[language].subtitle}</MandalaSub>
+      <MandalaHeader>{pageScript[language].header}</MandalaHeader>
+      <MandalaSub>{pageScript[language].subtitle}</MandalaSub>
       
       <MandalaGrid>
         <MandalaCircle color="primary">
           <MandalaIcon>☮</MandalaIcon>
-          <MandalaTitle>{content[language].peace}</MandalaTitle>
+          <MandalaTitle>{pageScript[language].peace}</MandalaTitle>
         </MandalaCircle>
         
         <MandalaCircle color="primary">
           <MandalaIcon>♻</MandalaIcon>
-          <MandalaTitle>{content[language].balance}</MandalaTitle>
+          <MandalaTitle>{pageScript[language].balance}</MandalaTitle>
         </MandalaCircle>
 
         
         <MandalaCircle color="primary">
           <MandalaIcon>∞</MandalaIcon>
-          <MandalaTitle>{content[language].harmony}</MandalaTitle>
+          <MandalaTitle>{pageScript[language].harmony}</MandalaTitle>
         </MandalaCircle>
       </MandalaGrid>
       
       <MandalaButton to="/about">
-        {content[language].cta}
+        {pageScript[language].cta}
       </MandalaButton>
     </HomeContainer>
   );

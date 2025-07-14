@@ -6,31 +6,52 @@ import { useLanguage } from './LanguageContext'; // Import the language context
 
 const MyAbout = () => {
     const { language } = useLanguage(); // Get current language
-  // Multilingual content
-  // const content = {
-  //   en: {
-  //     header: "About us, Tú Mandas",
-  //   },
-  //   fr: {
-  //     header: " À propos de nous, Tú Mandas",
-  //   },
-  //   es: {
-  //     header: "Acerca de nosotros, Tú Mandas",
-  //   }
-  // };
+
     return(
-      <div>
-        <Myh1>{pageScript[language].about.header}</Myh1>
-        <p>
-        {pageScript[language].about.body}
-        </p>
-        {/* <Myimg src={chocolate} alt="Chocolate"/> */}
-      </div>
+      <Wrapper>
+        <Myh2>
+          {pageScript[language].about.header}
+        </Myh2>
+        {Object.entries(pageScript[language].about.body).map(([key, value])=>(
+            <div  key = {key}>
+              <P>{value}</P>
+            </div>
+        ))}
+        <Myh2>
+          {pageScript[language].about.missionHeader}
+        </Myh2>
+        <P>
+          {pageScript[language].about.mission}
+        </P>
+        <P>
+          {pageScript[language].about.follow}
+          <a
+            href = "#"
+            onClick={(e) => {
+              e.preventDefault();
+              window.open(
+                "https://instagram.com/tumandalas",
+                "popup",
+                "width=600,height=600"
+              );
+            }}
+            >
+            @tumandalas
+          </a>
+        </P>
+      </Wrapper>
     )
 }
 
-const Myh1 = styled.h1`
+const Wrapper = styled.div`
+  padding: 50px 300px;
+`
+const Myh2 = styled.h2`
   text-align: center;
+`
+
+const P = styled.p`
+  text-align: justify ;
 `
 
 export default MyAbout;
