@@ -22,6 +22,24 @@ const pageScript = {
                 link2:"placeholder",
                 link3:"placeholder"
             }
+        },
+        about:{
+            header: "About us, Tú Mandas",
+            body:{
+                body1: "We are two passionate creators who believe in the power of art to inspire balance, peace, and harmony.",
+                body2: "Together, we designed this collection of unique mandalas to share beauty, mindfulness, and positive energy.",
+                body3: "Each illustration is crafted with care and intention, and we hope it brings a sense of calm and inspiration into your space.",
+                body4: "Thank you for supporting our creative journey!",
+            },
+            missionHeader: "Our mission",
+            mission: "To create meaningful art that nurtures well-being and brings moments of peace into daily life through the beauty of mandalas.",
+            follow: "Follow us on Instagram: ",
+        },
+        product:{
+            header:"Our Mandalas",
+            error: "Sorry, Product not found!",
+            goback: "Go back",
+            download: "Download here the "
         }
     },
     fr: {
@@ -47,11 +65,29 @@ const pageScript = {
                 link2:"placeholder",
                 link3:"placeholder"
             }
+        },
+        about:{
+            header: "À propos de nous, Tú Mandas",
+            body:{
+                body1: "Nous sommes deux créateurs passionnés qui croient au pouvoir de l’art pour inspirer l’équilibre, la paix et l’harmonie.",
+                body2: "Ensemble, nous avons conçu cette collection de mandalas uniques pour partager la beauté, la pleine conscience et l’énergie positive.", 
+                body3: "Chaque illustration est réalisée avec soin et intention, et nous espérons qu’elle apportera calme et inspiration à votre espace.",
+                body4:  "Merci de soutenir notre aventure créative!"
+            },
+            missionHeader: "Notre mission",
+            mission: "Créer un art porteur de sens qui favorise le bien-être et apporte des moments de paix au quotidien grâce à la beauté des mandalas.",
+            follow: "Suivez-nous sur Instagram : ",
+        },
+        product:{
+            header:"Nos Mandalas",
+            error: "Désolé, le produit n'a pas été trouvé",
+            goback: "Retour ",
+            download: "Telecharger ici le "
         }
     },
     es: {
         header: "Bienvenido a Tú Manda, tu Mundo Mandala",
-        subtitle: "Aquí, coloremaons tu vida!",
+        subtitle: "Aquí, coloreamos tu vida!",
         peace: "Paz",
         balance: "Equilibrio",
         harmony: "Armonía",
@@ -72,8 +108,27 @@ const pageScript = {
             link2:"placeholder",
             link3:"placeholder"
             }
+        },
+        about:{
+            header: "Acerca de nosotros, Tú Mandas",
+            body:{
+                body1: "Somos dos creadores apasionados que creemos en el poder del arte para inspirar equilibrio, paz y armonía.",
+                body2: "Juntos diseñamos esta colección de mandalas únicas para compartir belleza, conciencia y energía positiva.",
+                body3: "Cada ilustración está hecha con cuidado e intención, y esperamos que aporte calma e inspiración a tu espacio.",
+                body4: "¡Gracias por apoyar nuestro viaje creativo!"
+            },
+            missionHeader: "Nuestra misión",
+            mission: "Crear arte significativo que nutra el bienestar y brinde momentos de paz en la vida diaria a través de la belleza de los mandalas.",
+            follow: "Síguenos en Instagram: ",
+        },
+        product:{
+            header:"Nuestros Mandalas",
+            error: "Lo siento, el product no fue encontrado",
+            goback: "Regresar",
+            download: "Descarga aquí el "
         }
-    }
+
+    },
 };
 
 export default pageScript

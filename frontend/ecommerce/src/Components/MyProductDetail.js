@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import mandalas from '../data/mandalas.json';
+import pageScript from '../Objects/Script';
 import { useLanguage } from './LanguageContext';
 
 export default function MyProductDetail() {
@@ -9,29 +10,12 @@ export default function MyProductDetail() {
   const product = mandalas.find((p) => p.productId === productId);
   const {language} = useLanguage()
 
-  const content = {
-    en: {
-      error: "Sorry, Product not found!",
-      goback: "Go back",
-      download: "Download here the "
-    },
-    fr: {
-      error: "Désolé, le produit n'a pas été trouvé",
-      goback: "Retour ",
-      download: "Telecharger ici le "
-    },
-    es: {
-      error: "Lo siento, el product no fue encontrado",
-      goback: "Regresar",
-      download: "Descarga aquí el "
-    }
-  }
-//   console.log("productId ", productId);
+  //   console.log("productId ", productId);
 //   console.log("productId from URL:", productId);
 //   console.log("All productIds:", mandalas.map(p => p.productId));
 
   if (!product) {
-    return <Wrapper><h2>{content[language].error}</h2></Wrapper>;
+    return <Wrapper><h2>{pageScript[language].product.error}</h2></Wrapper>;
   }
 
   return (
@@ -41,11 +25,11 @@ export default function MyProductDetail() {
       <Price>${product.price.toFixed(2)} Cad</Price>
 
       <DownloadLink href={product.filePdfRoute} target="_blank" rel="noopener noreferrer">
-        {content[language].download} PDF
+        {pageScript[language].product.download} PDF
       </DownloadLink>
 
       <StyledButtonLink to={`/products/`}>
-        {content[language].goback} 
+        {pageScript[language].product.goback} 
       </StyledButtonLink>
     </Wrapper>
   );
