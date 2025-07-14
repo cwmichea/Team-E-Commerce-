@@ -22,6 +22,10 @@ const pageScript = {
                 link2:"placeholder",
                 link3:"placeholder"
             }
+        },
+        about:{
+            header: "About us, Tú Mandas",
+            body: "We are two passionate creators who believe in the power of art to inspire balance, peace, and harmony. Together, we designed this collection of unique mandalas to share beauty, mindfulness, and positive energy. Each illustration is crafted with care and intention, and we hope it brings a sense of calm and inspiration into your space. Thank you for supporting our creative journey!"
         }
     },
     fr: {
@@ -47,6 +51,10 @@ const pageScript = {
                 link2:"placeholder",
                 link3:"placeholder"
             }
+        },
+        about:{
+            header: "À propos de nous, Tú Mandas",
+            body: "Nous sommes deux créateurs passionnés qui croient au pouvoir de l’art pour inspirer l’équilibre, la paix et l’harmonie. Ensemble, nous avons conçu cette collection de mandalas uniques pour partager la beauté, la pleine conscience et l’énergie positive. Chaque illustration est réalisée avec soin et intention, et nous espérons qu’elle apportera calme et inspiration à votre espace. Merci de soutenir notre aventure créative!"
         }
     },
     es: {
@@ -72,6 +80,10 @@ const pageScript = {
             link2:"placeholder",
             link3:"placeholder"
             }
+        },
+        about:{
+            header: "Acerca de nosotros, Tú Mandas",
+            body: "Somos dos creadores apasionados que creemos en el poder del arte para inspirar equilibrio, paz y armonía. Juntos diseñamos esta colección de mandalas únicas para compartir belleza, conciencia y energía positiva. Cada ilustración está hecha con cuidado e intención, y esperamos que aporte calma e inspiración a tu espacio. ¡Gracias por apoyar nuestro viaje creativo!"
         }
     }
 };
