@@ -1,35 +1,20 @@
 import styled from 'styled-components';
 import {  Link,  useParams } from 'react-router-dom';
 import { useLanguage } from './LanguageContext';
+import pageScript from '../Objects/Script';
+
 
 const Nav = () => {
   const { language, toggleLanguage } = useLanguage();
   // Language-specific content
-  const navContent = {
-    en: {
-      home: 'Home',
-      about: 'About',
-      products: 'Products'
-    },
-    fr: {
-      home: 'Accueil',
-      about: 'À propos',
-      products: 'Produits'
-    },
-    es: {
-      home: 'Inicio',
-      about: 'Sobre',
-      products: 'Productos'
-    }
-  };
 
   return (
     <NavContainer>
       <nav>
         <div>
-        <Link to="/">{navContent[language].home}</Link> |{' '}
-        <Link to="/about">{navContent[language].about}</Link> |{' '}
-        <Link to="/products">{navContent[language].products}</Link> |{' '}
+        <Link to="/">{pageScript[language].navContent.home}</Link> |{' '}
+        <Link to="/about">{pageScript[language].navContent.about}</Link> |{' '}
+        <Link to="/products">{pageScript[language].navContent.products}</Link> |{' '}
         </div>
         <LanguageToggle>
           <button onClick={() => toggleLanguage('en')}>EN</button>
