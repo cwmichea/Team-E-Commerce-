@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import mandalas from '../data/mandalas.json'; 
 import { Link } from 'react-router-dom';
+import pageScript from '../Objects/Script';
 import { useLanguage } from './LanguageContext'; // Import the language context
 // const imgContext = require.context('..', false, /\.jpg$/);
 const printMe = (log) => {console.log(log);}
@@ -9,17 +10,6 @@ const printMe = (log) => {console.log(log);}
 export default function MandalaGrid() {
   const { language } = useLanguage(); // Get current language
   // Multilingual content
-  const content = {
-      en: {
-        btn: "Take a look",
-      },
-      fr: {
-        btn: "Voir plus",
-      },
-      es: {
-        btn: "Echa un vistazo",
-      }
-  }
   
   return (<>
     <Grid>
@@ -38,7 +28,7 @@ export default function MandalaGrid() {
           <Title>{item.name}</Title>
           <Price>${item.price.toFixed(2)}</Price>
           <StyledButtonLink to={`/products/${item.productId}`}>
-            {content[language].btn} 
+            {pageScript[language].grid.btn} 
           </StyledButtonLink>
         </Card>
       )} )}

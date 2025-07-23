@@ -40,6 +40,14 @@ const pageScript = {
             error: "Sorry, Product not found!",
             goback: "Go back",
             download: "Download here the "
+        },
+        navContent:{
+            home: 'Home',
+            about: 'About',
+            products: 'Products'
+        },
+        grid:{
+            btn: "Take a look",
         }
     },
     fr: {
@@ -83,7 +91,16 @@ const pageScript = {
             error: "Désolé, le produit n'a pas été trouvé",
             goback: "Retour ",
             download: "Telecharger ici le "
+        },
+        navContent:{
+            home: 'Accueil',
+            about: 'À propos',
+            products: 'Produits'
+        },
+        grid:{
+            btn: "Voir plus",
         }
+
     },
     es: {
         header: "Bienvenido a Tú Manda, tu Mundo Mandala",
@@ -126,6 +143,14 @@ const pageScript = {
             error: "Lo siento, el product no fue encontrado",
             goback: "Regresar",
             download: "Descarga aquí el "
+        },
+        navContent:{
+            home: 'Inicio',
+            about: 'Sobre',
+            products: 'Productos'
+        },
+        grid:{
+            btn: "Echa un vistazo",
         }
 
     },
