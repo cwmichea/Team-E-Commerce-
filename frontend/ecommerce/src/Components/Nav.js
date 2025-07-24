@@ -12,11 +12,12 @@ const Nav = () => {
     <NavContainer>
       <nav>
         <div>
-        <Link to="/">{pageScript[language].navContent.home}</Link> |{' '}
-        <Link to="/about">{pageScript[language].navContent.about}</Link> |{' '}
-        <Link to="/products">{pageScript[language].navContent.products}</Link> |{' '}
-        <Link to="/test">Test</Link> |{' '}
-        <Link to="/cart">Cart</Link> |{' '}
+          <Link to="/">{pageScript[language].navContent.home}</Link> |{' '}
+          <Link to="/about">{pageScript[language].navContent.about}</Link> |{' '}
+          <Link to="/products">{pageScript[language].navContent.products}</Link> |{' '}
+          <Link to="/cart">{pageScript[language].navContent.cart}</Link> |{' '}
+          
+          <Link to="/test" className="Test">Test</Link>
         </div>
         <LanguageToggle>
           <button onClick={() => toggleLanguage('en')}>EN</button>
@@ -43,9 +44,14 @@ const NavContainer = styled.div`
     text-decoration: none;
     margin: 0 0.5rem;
     
+    &.Test{
+      color: indigo;
+    };
+
     &:hover {
       text-decoration: underline;
-    }
+    };
+    
   }
   @media (max-width: 480px) {
     background-color: ${({ theme }) => theme.palette.secondary};

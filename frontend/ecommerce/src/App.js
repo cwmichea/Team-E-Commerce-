@@ -9,7 +9,7 @@ import MyProducts from './Components/MyProducts'
 import styled from 'styled-components';
 import MyProductDetail from './Components/MyProductDetail';
 import Testing from './Components/Testing';
-import { CartProvider } from './Components/CartContext';
+import { CartProvider } from './Components/CartContext'; // Kezare: this contains the cart context, so it is available everywhere.
 import MyCart from './Components/MyCart';
 
 const App = () => {
@@ -26,10 +26,10 @@ const App = () => {
               <Route path="/products/" element={<MyProducts />} />
               <Route path="/products/:productId" element={<MyProductDetail />} />
               <Route path="/cart/" element={<MyCart />} />
-
-              <Route path="/test" element={<Testing/>} /> {/* Adding for testing purposes*/}
-
               <Route path="*" element={<h2>404 - Page Not Found</h2>} />
+
+              <Route path="/test" element={<Testing/>} /> {/* Kezare: Adding for testing purposes*/}
+
             </Routes>
           </Wrapper>
           <Footer/>
