@@ -15,6 +15,8 @@ const Nav = () => {
         <Link to="/">{pageScript[language].navContent.home}</Link> |{' '}
         <Link to="/about">{pageScript[language].navContent.about}</Link> |{' '}
         <Link to="/products">{pageScript[language].navContent.products}</Link> |{' '}
+        <Link to="/test">Test</Link> |{' '}
+        <Link to="/cart">Cart</Link> |{' '}
         </div>
         <LanguageToggle>
           <button onClick={() => toggleLanguage('en')}>EN</button>

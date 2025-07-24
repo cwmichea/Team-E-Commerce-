@@ -8,27 +8,34 @@ import MyUser from './Components/MyUser'
 import MyProducts from './Components/MyProducts'
 import styled from 'styled-components';
 import MyProductDetail from './Components/MyProductDetail';
-
+import Testing from './Components/Testing';
+import { CartProvider } from './Components/CartContext';
+import MyCart from './Components/MyCart';
 
 const App = () => {
   return (
-    <Router>
-      <AppWrapper>
-        <Nav/>
-        <Wrapper>
-          <Routes>
-            <Route path="/" element={<MyHome />} />
-            <Route path="/about" element={<MyAbout />} />
-            <Route path="/user/:userId" element={<MyUser />} />
-            <Route path="/products/" element={<MyProducts />} />
-            <Route path="/products/:productId" element={<MyProductDetail />} />
+    <CartProvider>
+      <Router>
+        <AppWrapper>
+          <Nav/>
+          <Wrapper>
+            <Routes>
+              <Route path="/" element={<MyHome />} />
+              <Route path="/about" element={<MyAbout />} />
+              <Route path="/user/:userId" element={<MyUser />} />
+              <Route path="/products/" element={<MyProducts />} />
+              <Route path="/products/:productId" element={<MyProductDetail />} />
+              <Route path="/cart/" element={<MyCart />} />
 
-            <Route path="*" element={<h2>404 - Page Not Found</h2>} />
-          </Routes>
-        </Wrapper>
-        <Footer/>
-      </AppWrapper>
-  </Router>
+              <Route path="/test" element={<Testing/>} /> {/* Adding for testing purposes*/}
+
+              <Route path="*" element={<h2>404 - Page Not Found</h2>} />
+            </Routes>
+          </Wrapper>
+          <Footer/>
+        </AppWrapper>
+      </Router>
+    </CartProvider>
   );
 }
 

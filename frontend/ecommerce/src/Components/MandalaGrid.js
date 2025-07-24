@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import mandalas from '../data/mandalas.json'; 
 import { Link } from 'react-router-dom';
@@ -8,8 +8,42 @@ import { useLanguage } from './LanguageContext'; // Import the language context
 const printMe = (log) => {console.log(log);}
 
 export default function MandalaGrid() {
+  const [prompMessage, setPrompMessage] = useState(false);
+  const [prompPosition, setPrompPosition] = useState({top: 0, left: 0});
+  const [prompText, setPrompText] = useState('')
+  const [shopCart, setShopCart] = useState(
+    {
+      product: null,
+      quantity: 0,
+      cost: 0,
+    }
+  )
+
   const { language } = useLanguage(); // Get current language
   // Multilingual content
+
+  const clickMessage = (e, item) => {
+    const messageArea = e.target.getBoundingClientRect();
+    const toastWidth = 180;
+    const padding = 10;
+
+    const fitsRight = messageArea.left + messageArea.width + toastWidth + padding < window.innerWidth;
+
+    const left = fitsRight
+      ? messageArea.left + window.scrollX + messageArea.width + padding // right of button
+      : messageArea.left + window.scrollX - toastWidth - padding;      // left of button
+
+    const top = messageArea.top + window.scrollY - 40;
+    
+    const count = 0
+    console.log(item.name, item.price, count++ )
+    setPrompPosition({ top, left });
+    setPrompText(`Added "${item.name}" to cart!`);
+    setPrompMessage(true);
+
+    setTimeout(() => setPrompMessage(false), 3000);
+  };
+
   
   return (<>
     <Grid>
@@ -30,9 +64,22 @@ export default function MandalaGrid() {
           <StyledButtonLink to={`/products/${item.productId}`}>
             {pageScript[language].grid.btn} 
           </StyledButtonLink>
+          <StyledButtonLink onClick={(e) => clickMessage(e, item)}>
+            +
+          </StyledButtonLink>
         </Card>
       )} )}
-    </Grid></>
+    </Grid>
+    {prompMessage && (
+    <Promp 
+      top={prompPosition.top}
+      left={prompPosition.left}
+      visible={prompMessage}    
+    >
+      {prompText}
+    </Promp>
+    )}
+    </>
   );
 }
 const Grid = styled.div`
@@ -74,7 +121,7 @@ const Price = styled.p`
 `;
 const StyledButtonLink = styled(Link)`
   display: inline-block;
-  margin-top: 0.5rem;
+  margin: 0.3rem;
   padding: 0.4rem 0.8rem;
   background: #457b9d;
   color: white;
@@ -89,3 +136,19 @@ const StyledButtonLink = styled(Link)`
 const StyledLink = styled(Link)`
   display: block;
 `;
+
+const Promp = styled.div`
+  position: absolute;
+  top: ${({ top }) => `${top}px`};
+  left: ${({ left }) => `${left}px`};
+  background-color: #457b9d;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  opacity: ${({ visible }) => (visible ? 1 : 0)};
+  transform: ${({ visible }) => (visible ? 'translateY(0)' : 'translateY(-10px)')};
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+  white-space: nowrap;
+`
