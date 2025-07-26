@@ -6,6 +6,8 @@ const pageScript = {
         balance: "Balance",
         harmony: "Harmony",
         cta: "Begin Journey",
+        added: " added to cart!",
+
         footer:{
             account:{
                 h2:"My Account",
@@ -44,7 +46,8 @@ const pageScript = {
         navContent:{
             home: 'Home',
             about: 'About',
-            products: 'Products'
+            products: 'Products',
+            cart: 'Cart'
         },
         grid:{
             btn: "Take a look",
@@ -57,6 +60,8 @@ const pageScript = {
         balance: "Équilibre",
         harmony: "Harmonie",
         cta: "Commencer le Voyage",
+        added: " ajouté au panier!",
+
         footer:{
             account:{
                 h2: "Mon Compte",
@@ -95,7 +100,8 @@ const pageScript = {
         navContent:{
             home: 'Accueil',
             about: 'À propos',
-            products: 'Produits'
+            products: 'Produits',
+            cart: "Pannier"
         },
         grid:{
             btn: "Voir plus",
@@ -109,6 +115,8 @@ const pageScript = {
         balance: "Equilibrio",
         harmony: "Armonía",
         cta: "Comenzar el Viaje",
+        added: " añadido al carrito!",
+
         footer: {
             account:{
             h2: "Mi Cuenta",
@@ -147,7 +155,8 @@ const pageScript = {
         navContent:{
             home: 'Inicio',
             about: 'Sobre',
-            products: 'Productos'
+            products: 'Productos',
+            cart: 'Carrito'
         },
         grid:{
             btn: "Echa un vistazo",

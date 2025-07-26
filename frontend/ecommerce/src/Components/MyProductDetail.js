@@ -4,11 +4,23 @@ import styled from 'styled-components';
 import mandalas from '../data/mandalas.json';
 import pageScript from '../Objects/Script';
 import { useLanguage } from './LanguageContext';
+import Promp from './Promp';
+import useClickMessage from '../Objects/Functions';// Kezare: import the custom hook for handling floating cart messages
+
+
 
 export default function MyProductDetail() {
   const { productId } = useParams();
   const product = mandalas.find((p) => p.productId === productId);
   const {language} = useLanguage()
+
+  const {
+    prompMessage,
+    prompPosition,
+    prompText,
+    showPromp,
+    triggerClickMessage,
+  } = useClickMessage();// Kezare: destructuring the message state and handler from hook
 
   //   console.log("productId ", productId);
 //   console.log("productId from URL:", productId);
@@ -31,6 +43,20 @@ export default function MyProductDetail() {
       <StyledButtonLink to={`/products/`}>
         {pageScript[language].product.goback} 
       </StyledButtonLink>
+
+      {/* Kezare: handle "+ button" click by showing floating message and adding item to cart */}
+      <StyledButtonLink onClick={(e) => triggerClickMessage(e, product)}>
+        +
+      </StyledButtonLink>
+
+      {showPromp && (
+        <Promp
+          top={prompPosition.top}
+          left={prompPosition.left}
+          visible={prompMessage}
+          text={prompText}
+        />
+      )}
     </Wrapper>
   );
 }

@@ -2,39 +2,62 @@ import React from 'react';
 import styled from 'styled-components';
 import mandalas from '../data/mandalas.json'; 
 import { Link } from 'react-router-dom';
+import useClickMessage from '../Objects/Functions';// Kezare: import the custom hook for handling floating cart messages
+import Promp from './Promp';
+import { useLanguage } from './LanguageContext';
 import pageScript from '../Objects/Script';
-import { useLanguage } from './LanguageContext'; // Import the language context
-// const imgContext = require.context('..', false, /\.jpg$/);
-const printMe = (log) => {console.log(log);}
 
 export default function MandalaGrid() {
-  const { language } = useLanguage(); // Get current language
-  // Multilingual content
-  
-  return (<>
-    <Grid>
-      {mandalas.map((item) => {
-        // const imgSrc = imgContext(`${item.imgRoute}`); 
-        const imgSrc = process.env.PUBLIC_URL + item.imgRoute; // ✅ fixed     
-        const imgSrc1 = '/chocolate1.png';   
-        printMe(item.imgRoute.toString());   
-        return (
-        <Card key={item.productId}>
-          {/* import chocolate from '../img/chocolate1.png'; */}
-          <StyledLink to={`/products/${item.productId}`}>
-              <Image src={imgSrc} alt={item.name} />
-          </StyledLink>
-          {/* <Image src={imgSrc} alt={item.name} /> */}
-          <Title>{item.name}</Title>
-          <Price>${item.price.toFixed(2)}</Price>
-          <StyledButtonLink to={`/products/${item.productId}`}>
-            {pageScript[language].grid.btn} 
-          </StyledButtonLink>
-        </Card>
-      )} )}
-    </Grid></>
+  const {
+    prompMessage,
+    prompPosition,
+    prompText,
+    showPromp,
+    triggerClickMessage,
+  } = useClickMessage();// Kezare: destructuring the message state and handler from hook
+
+  const { language } = useLanguage();
+
+  return (
+    <>
+      <Grid>
+        {mandalas.map((item) => {
+          const imgSrc = process.env.PUBLIC_URL + item.imgRoute;
+
+          return (
+            <Card key={item.productId}>
+              <StyledLink to={`/products/${item.productId}`}>
+                <Image src={imgSrc} alt={item.name} />
+              </StyledLink>
+
+              <Title>{item.name}</Title>
+              <Price>${item.price.toFixed(2)}</Price>
+
+              <StyledButtonLink to={`/products/${item.productId}`}>
+                {pageScript[language].grid.btn}
+              </StyledButtonLink>
+
+              {/* Kezare: handle "+ button" click by showing floating message and adding item to cart */}
+              <StyledButtonLink onClick={(e) => triggerClickMessage(e, item)}>
+                +
+              </StyledButtonLink>
+            </Card>
+          );
+        })}
+      </Grid>
+
+      {showPromp && (
+        <Promp
+          top={prompPosition.top}
+          left={prompPosition.left}
+          visible={prompMessage}
+          text={prompText}
+        />
+      )}
+    </>
   );
 }
+
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -74,7 +97,7 @@ const Price = styled.p`
 `;
 const StyledButtonLink = styled(Link)`
   display: inline-block;
-  margin-top: 0.5rem;
+  margin: 0.3rem;
   padding: 0.4rem 0.8rem;
   background: #457b9d;
   color: white;
