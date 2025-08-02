@@ -20,9 +20,9 @@ const connectToDatabase = async () => {
         console.log("Connected to MongoDB");
     } catch (error) {
         console.error("Error connecting to MongoDB:", error);
-    } finally {
-        await client.close();
-        console.log("MongoDB connection closed");
+    // } finally {
+    //     await client.close();
+    //     console.log("MongoDB connection closed");
     };
 }
 

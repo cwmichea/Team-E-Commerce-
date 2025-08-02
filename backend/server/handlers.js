@@ -34,7 +34,7 @@ const { getDB } = require("./db/connection");
 const call = async (req, res) => {
     try {
         const db = getDB();
-        const collection = db.collection("testCollection");
+        const collection = db.collection("users");
 
         const documents = await collection.find({}).toArray();
         res.status(200).json(documents);
